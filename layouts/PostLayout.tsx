@@ -9,7 +9,7 @@ import Image from '@/components/Image'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
-import { TwitterTweetEmbed } from 'react-twitter-embed'
+import RawTwitterEmbed from '@/components/RawTwitterEmbed'
 
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
 const discussUrl = (path) =>
@@ -97,12 +97,7 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
             <div className="divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0 dark:divide-gray-700">
               <div className="prose dark:prose-invert max-w-none pt-10 pb-8">{children}</div>
               <div className="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
-                {/* Twitter Embed replaces Discuss on Twitter */}
-                {content.tweetId ? (
-                  <div className="flex justify-center">
-                    <TwitterTweetEmbed tweetId={content.tweetId} />
-                  </div>
-                ) : null}
+                {content.tweetId && <RawTwitterEmbed tweetId={content.tweetId} />}
               </div>
               <div
                 className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300"
