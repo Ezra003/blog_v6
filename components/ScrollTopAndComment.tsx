@@ -40,6 +40,18 @@ const ScrollTopAndComment = () => {
       window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
     }
   }
+  const handleScrollToNewsletter = () => {
+    const newsletterSection = document.getElementById('newsletterSection')
+    if (newsletterSection) {
+      const yOffset = -150 // Same offset as comments
+      const y = newsletterSection.getBoundingClientRect().top + window.scrollY + yOffset
+      window.scrollTo({ top: y, behavior: 'smooth' })
+      newsletterSection.classList.add('ring-4', 'ring-primary-500')
+      setTimeout(() => {
+        newsletterSection.classList.remove('ring-4', 'ring-primary-500')
+      }, 1500)
+    }
+  }
   return (
     <div
       className={`fixed right-8 bottom-8 hidden flex-col gap-3 ${show ? 'md:flex' : 'md:hidden'}`}
@@ -70,6 +82,16 @@ const ScrollTopAndComment = () => {
             d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"
             clipRule="evenodd"
           />
+        </svg>
+      </button>
+      <button
+        aria-label="Scroll To Subscribe"
+        onClick={handleScrollToNewsletter}
+        className="bg-primary-500 hover:bg-primary-600 dark:bg-primary-400 dark:hover:bg-primary-600 rounded-full p-2 text-white shadow-lg transition-all dark:text-white"
+      >
+        {/* Envelope icon for newsletter */}
+        <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M2.25 6.75A2.25 2.25 0 0 1 4.5 4.5h15a2.25 2.25 0 0 1 2.25 2.25v10.5A2.25 2.25 0 0 1 19.5 19.5h-15A2.25 2.25 0 0 1 2.25 17.25V6.75zm1.5 0v.638l8.25 5.775 8.25-5.775V6.75a.75.75 0 0 0-.75-.75h-15a.75.75 0 0 0-.75.75zm16.5 1.987-7.657 5.357a1.5 1.5 0 0 1-1.686 0L3.75 8.737v8.513c0 .414.336.75.75.75h15a.75.75 0 0 0 .75-.75V8.737z" />
         </svg>
       </button>
     </div>

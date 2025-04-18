@@ -8,7 +8,7 @@ export default function Footer() {
     <footer>
       <div className="mt-16 flex flex-col items-center">
         {/* Newsletter Form */}
-        <div className="mb-8 w-full max-w-lg">
+        <div id="newsletterSection" className="mb-8 w-full max-w-lg">
           <NewsletterBeehivForm />
         </div>
         <div className="mb-3 flex space-x-4">
