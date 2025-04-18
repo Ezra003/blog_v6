@@ -110,6 +110,7 @@ export const Blog = defineDocumentType(() => ({
     bibliography: { type: 'string' },
     canonicalUrl: { type: 'string' },
     tweetId: { type: 'string' },
+    instagramUrl: { type: 'string' },
   },
   computedFields: {
     ...computedFields,

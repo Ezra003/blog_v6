@@ -20,7 +20,25 @@ const ScrollTopAndComment = () => {
     window.scrollTo({ top: 0 })
   }
   const handleScrollToComment = () => {
-    document.getElementById('comment')?.scrollIntoView()
+    const commentsSection = document.getElementById('commentsSection')
+    if (commentsSection) {
+      const yOffset = -150 // Adjust this value for more/less space above
+      const y = commentsSection.getBoundingClientRect().top + window.scrollY + yOffset
+      window.scrollTo({ top: y, behavior: 'smooth' })
+
+      // Focus for accessibility
+      if (typeof commentsSection.focus === 'function') {
+        commentsSection.focus({ preventScroll: true })
+      }
+      // Highlight effect
+      commentsSection.classList.add('ring-4', 'ring-primary-500')
+      setTimeout(() => {
+        commentsSection.classList.remove('ring-4', 'ring-primary-500')
+      }, 1500)
+    } else {
+      // fallback: scroll to bottom of page
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+    }
   }
   return (
     <div
