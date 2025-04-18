@@ -81,11 +81,7 @@ export default function Home({ posts }) {
           </Link>
         </div>
       )}
-      {siteMetadata.newsletter?.provider === 'beehiiv' && (
-        <div className="flex items-center justify-center pt-4">
-          <NewsletterBeehivForm />
-        </div>
-      )}
+      {/* Removed NewsletterBeehivForm from below the homepage */}
     </>
   )
 }
