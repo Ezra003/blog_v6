@@ -9,7 +9,6 @@ import Image from '@/components/Image'
 import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
-import RawTwitterEmbed from '@/components/RawTwitterEmbed'
 
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
 const discussUrl = (path) =>
@@ -97,7 +96,32 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
             <div className="divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0 dark:divide-gray-700">
               <div className="prose dark:prose-invert max-w-none pt-10 pb-8">{children}</div>
               <div className="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
-                {content.tweetId && <RawTwitterEmbed tweetId={content.tweetId} />}
+                {/* Link to Twitter post instead of embed */}
+                {content.tweetId ? (
+                  <div className="flex justify-center">
+                    <a
+                      href={`https://twitter.com/i/web/status/${content.tweetId}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 flex items-center gap-1 underline"
+                    >
+                      Comment on
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 120 120"
+                        width="18"
+                        height="18"
+                        className="inline-block align-text-bottom"
+                        aria-label="X (Twitter) logo"
+                      >
+                        <path
+                          d="M93.6 20H113L73.3 67.5L120 120H83.1L54.1 87.5L21.1 120H1.1L43.1 69.4L0 20.1H37.6L63.2 49.3L93.6 20ZM87.2 109.1H97.1L32.9 30.3H22.1L87.2 109.1Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                ) : null}
               </div>
               <div
                 className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300"
