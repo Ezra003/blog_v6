@@ -11,7 +11,7 @@ import { usePathname } from 'next/navigation'
 const Header = () => {
   const pathname = usePathname()
   const headerClass =
-    'flex items-center space-x-2 leading-5 sm:space-x-4 fixed left-1/2 top-6 z-50 w-[95vw] max-w-4xl -translate-x-1/2 justify-between rounded-2xl border border-gray-200/70 bg-white/80 px-4 py-3 shadow-xl shadow-black/5 backdrop-blur-lg transition-all dark:border-gray-800/70 dark:bg-gray-950/80'
+    'flex items-center gap-4 leading-5 sm:gap-4 fixed left-1/2 top-6 z-50 w-[95vw] max-w-4xl -translate-x-1/2 justify-between rounded-2xl border border-gray-200/70 bg-white/80 px-4 py-3 shadow-xl shadow-black/5 backdrop-blur-lg transition-all dark:border-gray-800/70 dark:bg-gray-950/80'
 
   return (
     <header className={headerClass} role="navigation" aria-label="Main Navigation">
@@ -39,9 +39,9 @@ const Header = () => {
           )}
         </div>
       </Link>
-      <nav className="flex items-center space-x-2 leading-5 sm:space-x-4">
+      <nav className="flex items-center gap-4 leading-5">
         {/* Show nav links only on md+ screens instead of sm+ */}
-        <div className="no-scrollbar hidden max-w-40 items-center gap-x-2 overflow-x-auto md:flex md:max-w-72 lg:max-w-96">
+        <div className="no-scrollbar hidden max-w-40 items-center gap-4 overflow-x-auto md:flex md:max-w-72 lg:max-w-96">
           {headerNavLinks
             .filter((link) => link.href !== '/')
             .map((link) => (
@@ -59,9 +59,11 @@ const Header = () => {
               </Link>
             ))}
         </div>
-        <SearchButton />
-        <ThemeSwitch />
-        <MobileNav />
+        <div className="flex items-center gap-4">
+          <SearchButton />
+          <ThemeSwitch />
+          <MobileNav />
+        </div>
       </nav>
     </header>
   )
