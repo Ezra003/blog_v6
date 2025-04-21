@@ -260,11 +260,11 @@ function ProjectCard({
   )
 }
 
-function SkillIcon({ skill }: (typeof skills)[0]) {
+function SkillIcon({ name, svg }: { name: string; svg: React.ReactNode }) {
   return (
     <div className="flex flex-col items-center transition-transform hover:scale-110">
-      <span className="mb-1">{skill.svg}</span>
-      <span className="text-xs text-gray-600 dark:text-gray-400">{skill.name}</span>
+      <span className="mb-1">{svg}</span>
+      <span className="text-xs text-gray-600 dark:text-gray-400">{name}</span>
     </div>
   )
 }
@@ -330,7 +330,7 @@ export default function PortfolioPage() {
         </p>
         <div className="mt-4 flex flex-wrap justify-center gap-6">
           {skills.map((skill) => (
-            <SkillIcon key={skill.name} skill={skill} />
+            <SkillIcon key={skill.name} name={skill.name} svg={skill.svg} />
           ))}
         </div>
       </section>
