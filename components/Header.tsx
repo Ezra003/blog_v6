@@ -27,7 +27,7 @@ const Header = () => {
               alt="Site Logo"
               width={48}
               height={48}
-              className="rounded-full shadow"
+              className="rounded-full"
             />
           </div>
           {typeof siteMetadata.headerTitle === 'string' ? (
@@ -40,7 +40,8 @@ const Header = () => {
         </div>
       </Link>
       <nav className="flex items-center space-x-2 leading-5 sm:space-x-4">
-        <div className="no-scrollbar hidden max-w-40 items-center gap-x-2 overflow-x-auto sm:flex md:max-w-72 lg:max-w-96">
+        {/* Show nav links only on md+ screens instead of sm+ */}
+        <div className="no-scrollbar hidden max-w-40 items-center gap-x-2 overflow-x-auto md:flex md:max-w-72 lg:max-w-96">
           {headerNavLinks
             .filter((link) => link.href !== '/')
             .map((link) => (
