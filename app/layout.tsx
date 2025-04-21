@@ -120,7 +120,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <SectionContainer>
             <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
               <Header />
-              <main className="mb-auto">{children}</main>
+              {/* Add top margin to prevent floating navbar from covering top content */}
+              <main className="mt-[5.5rem] mb-auto">{children}</main>
             </SearchProvider>
             <Footer />
           </SectionContainer>
