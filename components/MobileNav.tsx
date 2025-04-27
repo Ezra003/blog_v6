@@ -4,6 +4,7 @@ import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/re
 import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
 import { Fragment, useState, useEffect, useRef, useCallback } from 'react'
 import Link from './Link'
+import KoFiButton from './KoFiButton'
 import headerNavLinks from '@/data/headerNavLinks'
 
 const MobileNav = () => {
@@ -132,6 +133,10 @@ const MobileNav = () => {
                     {link.title}
                   </Link>
                 ))}
+                {/* Buy Me a Döner button */}
+                <div className="mt-8 mb-4 flex justify-center">
+                  <KoFiButton />
+                </div>
               </nav>
             </DialogPanel>
           </TransitionChild>

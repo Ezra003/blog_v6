@@ -6,6 +6,7 @@ import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import SearchButton from './SearchButton'
 import Image from './Image'
+import KoFiButton from './KoFiButton'
 import { usePathname } from 'next/navigation'
 
 const Header = () => {
@@ -62,6 +63,20 @@ const Header = () => {
         <div className="flex items-center gap-4">
           <SearchButton />
           <ThemeSwitch />
+          {/* Mobile: Icon only, Desktop: Full button */}
+          <KoFiButton
+            label="Buy me a Döner"
+            className="ml-2"
+            variant="navbar"
+            hideLabelOnMobile
+            mobileIconOnly
+          />
+          <KoFiButton
+            label="Buy me a Döner"
+            className="ml-2 hidden sm:inline-flex"
+            variant="navbar"
+            hideLabelOnMobile
+          />
           <MobileNav />
         </div>
       </nav>
