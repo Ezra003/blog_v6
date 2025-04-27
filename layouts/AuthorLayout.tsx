@@ -2,6 +2,7 @@ import { ReactNode } from 'react'
 import type { Authors } from 'contentlayer/generated'
 import SocialIcon from '@/components/social-icons'
 import Image from '@/components/Image'
+import KoFiButton from '@/components/KoFiButton'
 
 interface Props {
   children: ReactNode
@@ -39,6 +40,9 @@ export default function AuthorLayout({ children, content }: Props) {
               <SocialIcon kind="linkedin" href={linkedin} />
               <SocialIcon kind="x" href={twitter} />
               <SocialIcon kind="bluesky" href={bluesky} />
+            </div>
+            <div className="mt-6">
+              <KoFiButton label="Support my writing on Ko-Fi!" />
             </div>
           </div>
           <div className="prose dark:prose-invert max-w-none pt-8 pb-8 xl:col-span-2">

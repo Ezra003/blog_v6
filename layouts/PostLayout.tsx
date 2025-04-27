@@ -14,6 +14,7 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import CommentsSection from '@/components/CommentsSection'
+import KoFiButton from '@/components/KoFiButton'
 
 // ===== Helper Functions & Constants =====
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
@@ -114,7 +115,12 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
             {/* ===== Main Content & Comments ===== */}
             <div className="divide-y divide-gray-200 xl:col-span-3 xl:row-span-2 xl:pb-0 dark:divide-gray-700">
               {/* Main Post Content */}
-              <div className="prose dark:prose-invert max-w-none pt-10 pb-24">{children}</div>
+              <div className="prose dark:prose-invert max-w-none pt-10 pb-24">
+                {children}
+                <div className="not-prose mt-10 flex justify-center">
+                  <KoFiButton label="Enjoyed this post? Buy me a Döner!" />
+                </div>
+              </div>
               {/* ===== Comments Section ===== */}
               <CommentsSection
                 tweetId={content.tweetId}

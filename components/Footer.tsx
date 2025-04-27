@@ -1,4 +1,5 @@
 import Link from './Link'
+import KoFiButton from './KoFiButton'
 import siteMetadata from '@/data/siteMetadata'
 import SocialIcon from '@/components/social-icons'
 import NewsletterBeehivForm from '@/components/NewsletterBeehivForm'
@@ -35,6 +36,9 @@ export default function Footer() {
           <Link href="https://github.com/timlrx/tailwind-nextjs-starter-blog">
             Tailwind Nextjs Theme
           </Link>
+        </div>
+        <div className="mb-8">
+          <KoFiButton />
         </div>
       </div>
     </footer>
