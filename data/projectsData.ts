@@ -7,12 +7,11 @@ interface Project {
 
 const projectsData: Project[] = [
   {
-    title: 'A Search Engine',
-    description: `What if you could look up any information in the world? Webpages, images, videos
-    and more. Google has many features to help you find exactly what you're looking
-    for.`,
-    imgSrc: '/static/images/google.png',
-    href: 'https://www.google.com',
+    title: 'Free Resume Builder',
+    description: `a free resume builder that helps you create professional resumes quickly and easily
+    with customizable templates and features`,
+    imgSrc: '/static/images/time-machine.jpg',
+    href: 'https://free-resume-builder.mindandmuster.com/',
   },
   {
     title: 'The Time Machine',
