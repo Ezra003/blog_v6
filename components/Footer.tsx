@@ -1,8 +1,8 @@
-import Link from './Link'
-import KoFiButton from './KoFiButton'
+import Link from 'next/link'
 import siteMetadata from '@/data/siteMetadata'
 import SocialIcon from '@/components/social-icons'
 import NewsletterBeehivForm from '@/components/NewsletterBeehivForm'
+import KoFiButton from './KoFiButton'
 
 export default function Footer() {
   return (
@@ -33,9 +33,9 @@ export default function Footer() {
           <Link href="/">{siteMetadata.title}</Link>
         </div>
         <div className="mb-8 text-sm text-gray-500 dark:text-gray-400">
-          <Link href="https://github.com/timlrx/tailwind-nextjs-starter-blog">
-            Tailwind Nextjs Theme
-          </Link>
+          <span className="font-medium">
+            <Link href="/legal">Made with ❤️ in Crailsheim</Link>
+          </span>
         </div>
         <div className="mb-8">
           <KoFiButton />
