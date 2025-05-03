@@ -1,5 +1,4 @@
 # Build stage
-# Build stage
 FROM node:20-alpine AS builder
 
 WORKDIR /app
@@ -27,6 +26,9 @@ COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/node_modules ./node_modules
 
+# Install production dependencies
+RUN npm install --omit=dev
+
 # Expose the port the app runs on
 EXPOSE 3000
 
@@ -34,6 +36,7 @@ EXPOSE 3000
 ENV NODE_ENV=production
 ENV PORT=3000
 ENV HOST=0.0.0.0
+ENV NEXT_TELEMETRY_DISABLED=1
 
 # Start the application with the correct port
 CMD ["npm", "start"]

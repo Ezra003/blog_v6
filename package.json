@@ -3,7 +3,7 @@
   "version": "2.4.0",
   "private": true,
   "scripts": {
-    "start": "next start",
+    "start": "next start -p $PORT -H $HOST",
     "dev": "next dev",
     "build": "next build && cross-env NODE_OPTIONS='--experimental-json-modules' node ./scripts/postbuild.mjs",
     "serve": "next start",
