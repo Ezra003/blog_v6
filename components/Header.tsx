@@ -42,7 +42,7 @@ const Header = () => {
       </Link>
       <nav className="flex items-center gap-4 leading-5">
         {/* Show nav links only on md+ screens instead of sm+ */}
-        <div className="no-scrollbar hidden max-w-40 items-center gap-4 overflow-x-auto md:flex md:max-w-72 lg:max-w-96">
+        <div className="no-scrollbar mr-auto hidden max-w-40 items-center gap-3 overflow-x-auto md:flex md:max-w-72 lg:max-w-96">
           {headerNavLinks
             .filter((link) => link.href !== '/')
             .map((link) => (
@@ -60,20 +60,14 @@ const Header = () => {
               </Link>
             ))}
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-6">
           <SearchButton />
           <ThemeSwitch />
           {/* Mobile: Icon only, Desktop: Full button */}
+          <KoFiButton label="Buy me a Döner" variant="navbar" hideLabelOnMobile mobileIconOnly />
           <KoFiButton
             label="Buy me a Döner"
-            className="ml-2"
-            variant="navbar"
-            hideLabelOnMobile
-            mobileIconOnly
-          />
-          <KoFiButton
-            label="Buy me a Döner"
-            className="ml-2 hidden sm:inline-flex"
+            className="hidden sm:inline-flex"
             variant="navbar"
             hideLabelOnMobile
           />

@@ -1,144 +1,165 @@
 import { Metadata } from 'next'
-import React, { JSX } from 'react'
+import { legalData } from '../../data/legalData'
+import React, { Fragment } from 'react'
 
+// Define metadata for the page (make sure it's outside of the component)
 export const metadata: Metadata = {
   title: 'Legal Information',
   description: 'Imprint, Privacy Policy, Cookie Policy, and Disclaimers for this blog',
 }
 
-const Legal: React.FC = (): JSX.Element => {
+const Legal: React.FC = () => {
   return (
-    <div className="prose max-w-none py-10">
-      <h1>Legal Information</h1>
+    <Fragment>
+      <section className="prose dark:prose-invert mx-auto max-w-3xl py-10 text-gray-700 dark:text-gray-200">
+        <h1>Legal Information</h1>
 
-      {/* Imprint / Impressum */}
-      <h2>Imprint</h2>
-      <p>
-        <em>(Required under § 5 TMG / Digital Services Act)</em>
-      </p>
-      <div className="space-y-2">
+        {/* Imprint / Impressum (Required by EU law) */}
+        <h2>Imprint / Impressum</h2>
+        <ul>
+          <li>
+            <strong>Site Operator:</strong> {legalData.companyName}
+          </li>
+          <li>
+            <strong>Address:</strong> {legalData.address}, {legalData.city}, {legalData.country}
+          </li>
+          <li>
+            <strong>Phone:</strong> {legalData.phone}
+          </li>
+          <li>
+            <strong>Email:</strong> {legalData.email}
+          </li>
+          {/* The following fields are only needed if you are a registered business. Remove if not applicable. */}
+          {legalData.commercialRegister && (
+            <li>
+              <strong>Commercial Register:</strong> {legalData.commercialRegister}
+            </li>
+          )}
+          {legalData.vatId && (
+            <li>
+              <strong>VAT ID:</strong> {legalData.vatId}
+            </li>
+          )}
+          {legalData.managingDirector && (
+            <li>
+              <strong>Managing Director / Owner:</strong> {legalData.managingDirector}
+            </li>
+          )}
+        </ul>
         <p>
-          <strong>Site Operator:</strong> [Your Name or Company]
+          <strong>Effective Date:</strong> {legalData.effectiveDate}
         </p>
         <p>
-          <strong>Address:</strong> [Street and Number], [Postal Code] [City], Germany
+          <strong>Responsible for content according to § 55 Abs. 2 RStV:</strong>{' '}
+          {legalData.companyName}, {legalData.address}, {legalData.city}, {legalData.country}
+        </p>
+
+        {/* Privacy Policy (GDPR) */}
+        <h2>Privacy Policy (GDPR)</h2>
+        <h3>1. Data Controller</h3>
+        <ul>
+          <li>
+            <strong>Name:</strong> {legalData.companyName}
+          </li>
+          <li>
+            <strong>Address:</strong> {legalData.address}, {legalData.city}, {legalData.country}
+          </li>
+          <li>
+            <strong>Email:</strong> {legalData.email}
+          </li>
+        </ul>
+        <h3>2. Purposes of Processing</h3>
+        <ul>
+          <li>Operating the website</li>
+          {/* Add more if you use analytics, comments, newsletter, etc. */}
+        </ul>
+        <h3>3. Legal Basis</h3>
+        <ul>
+          <li>Consent (Art. 6(1)(a) GDPR)</li>
+          <li>Legal obligations (Art. 6(1)(c) GDPR)</li>
+          <li>Legitimate interests (Art. 6(1)(f) GDPR)</li>
+        </ul>
+        <h3>4. Data Recipients</h3>
+        <ul>
+          <li>Hosting provider</li>
+          {/* Add others if you use analytics, newsletter, etc. */}
+        </ul>
+        <h3>5. Data Transfers</h3>
+        <p>
+          Data may be transferred to countries outside the EU/EEA only if adequate safeguards are in
+          place.
+        </p>
+        <h3>6. Retention</h3>
+        <p>
+          Personal data is retained only as long as necessary for the stated purposes or as required
+          by law.
+        </p>
+        <h3>7. User Rights</h3>
+        <ul>
+          <li>
+            Access, rectification, erasure, restriction, objection, portability, and withdrawal of
+            consent at any time.
+          </li>
+          <li>Right to lodge a complaint with a supervisory authority (see below).</li>
+        </ul>
+        <h3>8. Cookies</h3>
+        <p>
+          We use only essential cookies for website operation.{' '}
+          {/* If you use analytics or marketing cookies, update this section and mention consent management. */}
+        </p>
+
+        {/* Cookie Policy */}
+        <h2>Cookie Policy</h2>
+        <p>
+          Cookies are small text files stored on your device. We only use cookies necessary for the
+          website to function. You can manage cookies in your browser settings.
+        </p>
+
+        {/* Disclaimers */}
+        <h2>Disclaimers</h2>
+        <p>
+          We strive to keep information up to date, but do not guarantee completeness or accuracy.
+          Use of this website is at your own risk.
+        </p>
+        <h3>External Links</h3>
+        <p>We are not responsible for the content of external websites linked here.</p>
+
+        {/* Copyright & Intellectual Property */}
+        <h2>Copyright & Intellectual Property</h2>
+        <p>
+          All content is protected by copyright. Reproduction or distribution requires written
+          permission unless otherwise stated.
+        </p>
+
+        {/* Contact & ODR */}
+        <h2>Contact & Online Dispute Resolution</h2>
+        <p>If you have questions or concerns, contact us at {legalData.email}.</p>
+        <p>
+          The EU Commission provides a platform for online dispute resolution:{' '}
+          <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">
+            ec.europa.eu/consumers/odr
+          </a>
         </p>
         <p>
-          <strong>Contact:</strong> Phone: [Your Phone Number], E-mail:{' '}
-          <a href="mailto:[your-email]">[your-email]</a>
+          We are not willing or obliged to participate in dispute resolution proceedings before a
+          consumer arbitration board.
         </p>
+        <h3>Supervisory Authority</h3>
         <p>
-          <strong>Commercial Register:</strong> [Court], HRB [Number] (if applicable)
+          If you believe your data protection rights have been violated, you can contact your local
+          data protection authority. (Add your authority’s contact if required.)
         </p>
+
+        {/* Changes & Effective Date */}
+        <h2>Changes to This Notice</h2>
         <p>
-          <strong>VAT ID:</strong> DE[Your VAT-ID-Number] (if applicable)
+          We reserve the right to update this Legal Information at any time. The current version
+          will always be published here.
         </p>
-        <p>
-          <strong>Managing Director:</strong> [Name] (for companies)
-        </p>
-      </div>
-
-      {/* Contact */}
-      <h2>Contact Information</h2>
-      <p>
-        For general inquiries or requests regarding this site, please use the contact details above.
-      </p>
-
-      {/* Disclaimer */}
-      <h2>Disclaimer</h2>
-      <p>
-        The content on this blog is provided “as is” for informational purposes only. We make no
-        warranties, express or implied, regarding accuracy, completeness, or suitability.
-      </p>
-      <p>
-        As a service provider, we are responsible under §§ 7 ff. of Germany’s Telemedia Act (TMG)
-        for our own content, but not for third-party content (§§ 8–10 TMG).
-      </p>
-      <p>
-        External links were checked at the time of inclusion for legal violations; however, we do
-        not control external content. If you become aware of any illegal links, please inform us so
-        we can remove them.
-      </p>
-
-      {/* Privacy Policy */}
-      <h2>Privacy Policy</h2>
-      <p>
-        We process personal data in compliance with the EU General Data Protection Regulation (GDPR)
-        and the German Federal Data Protection Act (BDSG).
-      </p>
-      <h3>1. Data Controller</h3>
-      <p>
-        [Your Name / Company], [Address], E-mail: <a href="mailto:[your-email]">[your-email]</a>.
-      </p>
-      <h3>2. Legal Basis</h3>
-      <ul className="list-inside list-disc">
-        <li>Performance of contract or pre-contractual measures (Art. 6(1)(b) GDPR)</li>
-        <li>Legal obligations (Art. 6(1)(c) GDPR)</li>
-        <li>Consent (Art. 6(1)(a) GDPR), e.g. for non-essential cookies</li>
-      </ul>
-      <h3>3. Recipients</h3>
-      <p>
-        Data may be shared with service providers (hosting, analytics), each bound by contract to
-        GDPR standards.
-      </p>
-      <h3>4. Retention</h3>
-      <p>
-        Personal data is retained only as long as necessary for the purposes stated or as required
-        by law.
-      </p>
-      <h3>5. Your Rights</h3>
-      <p>
-        You have the right to access, rectify, erase, restrict, object to processing, data
-        portability, and withdraw consent at any time.
-      </p>
-
-      {/* Cookie Policy */}
-      <h2>Cookie Policy</h2>
-      <p>
-        We use cookies to enhance site functionality. Technically necessary cookies are set
-        automatically. All others require your consent.
-      </p>
-      <h3>Cookie Categories</h3>
-      <ul className="list-inside list-disc">
-        <li>
-          <strong>Necessary:</strong> Required for basic site functions (e.g., session).
-        </li>
-        <li>
-          <strong>Statistics:</strong> Anonymous analytics (e.g., Google Analytics, Umami).
-        </li>
-        <li>
-          <strong>Marketing:</strong> Tracking for advertising purposes.
-        </li>
-      </ul>
-      <p>You can change or withdraw your consent at any time via the cookie banner.</p>
-
-      {/* External Links */}
-      <h2>External Links</h2>
-      <p>We are not responsible for content on external websites linked from this blog.</p>
-
-      {/* Online Dispute Resolution */}
-      <h2>Online Dispute Resolution</h2>
-      <p>
-        The EU Commission provides a platform for online dispute resolution:{' '}
-        <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer">
-          ec.europa.eu/consumers/odr
-        </a>
-        .
-      </p>
-      <p>
-        We are not willing or obliged to participate in dispute resolution proceedings before a
-        consumer arbitration board.
-      </p>
-
-      {/* Changes & Effective Date */}
-      <h2>Changes to This Notice</h2>
-      <p>
-        We reserve the right to update this Legal Information at any time. The current version will
-        always be published here.
-      </p>
-      <h2>Effective Date</h2>
-      <p>May 4, 2025</p>
-    </div>
+        <h2>Effective Date</h2>
+        <p>{legalData.effectiveDate}</p>
+      </section>
+    </Fragment>
   )
 }
 

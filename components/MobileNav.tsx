@@ -96,12 +96,12 @@ const MobileNav = () => {
             unmount={false}
           >
             <DialogPanel
-              className="fixed top-0 right-0 z-70 flex h-full w-10/12 max-w-xs flex-col bg-white shadow-xl ring-1 ring-black/10 focus:outline-none dark:bg-gray-950 dark:ring-white/10"
+              className="fixed top-0 right-0 z-70 flex h-full w-11/12 max-w-sm flex-col bg-white shadow-xl ring-1 ring-black/10 focus:outline-none dark:bg-gray-950 dark:ring-white/10"
               ref={navRef}
               tabIndex={-1}
               aria-label="Mobile navigation panel"
             >
-              <div className="flex items-center justify-between border-b border-gray-200 px-6 py-4 dark:border-gray-800">
+              <div className="flex items-center justify-between border-b border-gray-200 px-8 py-6 dark:border-gray-800">
                 <span className="text-lg font-bold text-gray-900 dark:text-gray-100">Menu</span>
                 <button
                   className="focus-visible:ring-primary-500 hover:bg-primary-100 dark:hover:bg-primary-900/30 rounded-full p-2 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-gray-950"
@@ -122,19 +122,19 @@ const MobileNav = () => {
                   </svg>
                 </button>
               </div>
-              <nav className="flex flex-col gap-2 px-6 py-6" aria-label="Main menu">
+              <nav className="flex flex-col gap-4 px-8 py-8" aria-label="Main menu">
                 {headerNavLinks.map((link) => (
                   <Link
                     key={link.title}
                     href={link.href}
-                    className="hover:bg-primary-50 dark:hover:bg-primary-900/40 focus-visible:ring-primary-500 rounded-lg px-4 py-3 text-lg font-semibold text-gray-900 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:text-gray-100 dark:focus-visible:ring-offset-gray-950"
+                    className="hover:bg-primary-50 dark:hover:bg-primary-900/40 focus-visible:ring-primary-500 rounded-lg px-5 py-3.5 text-lg font-semibold text-gray-900 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:text-gray-100 dark:focus-visible:ring-offset-gray-950"
                     onClick={onToggleNav}
                   >
                     {link.title}
                   </Link>
                 ))}
                 {/* Buy Me a Döner button */}
-                <div className="mt-8 mb-4 flex justify-center">
+                <div className="mt-10 mb-6 flex justify-center">
                   <KoFiButton />
                 </div>
               </nav>
