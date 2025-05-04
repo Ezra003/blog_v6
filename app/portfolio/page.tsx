@@ -6,7 +6,7 @@ import Image from 'next/image'
 export const metadata = genPageMetadata({ title: 'Portfolio' })
 
 const PROFILE = {
-  name: 'Your Name', // Replace with dynamic data or props if needed
+  name: 'Your Dev', // Replace with dynamic data or props if needed
   email: 'your@email.com',
   github: 'yourusername',
   linkedin: 'yourusername',
@@ -15,9 +15,9 @@ const PROFILE = {
 
 const projects = [
   {
-    title: 'Modern Blog Platform',
-    description: 'A feature-rich blog platform built with Next.js, Tailwind CSS, and Contentlayer.',
-    link: 'https://yourblogplatform.com',
+    title: 'Free Resume Builder',
+    description: 'A free resume builder to create your resume.',
+    link: 'https://free-resume-builder.mindandmuster.com/',
     image: 'https://placehold.co/544x306/png?text=Blog+Platform',
     tech: ['Next.js', 'Tailwind CSS', 'Contentlayer'],
     featured: true,
