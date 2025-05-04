@@ -52,7 +52,7 @@ const Header = () => {
                 aria-current={pathname === link.href ? 'page' : undefined}
                 className={`focus-visible:ring-primary-500 dark:focus-visible:ring-primary-400 rounded-lg px-3 py-1.5 font-medium transition-colors focus:outline-none focus-visible:ring-2 ${
                   pathname === link.href
-                    ? 'dark:bg-primary-400 text-white shadow dark:text-gray-900'
+                    ? 'bg-primary-600 dark:bg-primary-400 text-white shadow dark:text-gray-900'
                     : 'hover:bg-primary-50 hover:text-primary-600 dark:hover:bg-primary-900/30 dark:hover:text-primary-400 text-gray-900 dark:text-gray-100'
                 }`}
               >
